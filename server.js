@@ -10,7 +10,12 @@ server.use(express.json());
 
 server.use(express.static("public"));
 
-// server.use(require("../routes/html-routes.js"));
+mongoose.connect("mongodb://localhost/workout", {
+    useNewUrlParser: true,
+    useFindAndModify: false
+});
+
+server.use(require("./routes/api-routes.js"));
 server.use(require("./routes/html-routes.js"));
 
 server.listen(PORT, () => {
