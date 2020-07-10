@@ -11,10 +11,7 @@ server.use(express.json());
 
 server.use(express.static("public"));
 
-mongoose.connect(mongoURI, {
-    useNewUrlParser: true,
-    useFindAndModify: false
-});
+mongoose.connect(mongoURI);
 
 server.use(require("./routes/api-routes.js"));
 server.use(require("./routes/html-routes.js"));
